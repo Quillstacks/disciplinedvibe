@@ -11,12 +11,12 @@
 # Re-run:  safe; every step is idempotent.
 #
 # Knobs (env vars):
-#   MODEL=qwen2.5-coder:1.5b   # any tag from https://ollama.com/library
+#   MODEL=qwen3:1.7b   # any tag from https://ollama.com/library
 #   EDITOR=micro               # micro (default) | zed | vscode | none
 
 set -euo pipefail
 
-MODEL="${MODEL:-qwen2.5-coder:1.5b}"
+MODEL="${MODEL:-qwen3:1.7b}"
 EDITOR_CHOICE="${EDITOR:-micro}"
 OS="$(uname -s)"
 
@@ -170,6 +170,7 @@ write_opencode_config() {
   cat >"$cfg" <<EOF
 {
   "\$schema": "https://opencode.ai/config.json",
+  "model": "ollama/$MODEL",
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",

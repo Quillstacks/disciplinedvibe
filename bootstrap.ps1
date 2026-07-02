@@ -10,11 +10,11 @@
 # Re-run:  safe; every step is idempotent.
 #
 # Knobs (env vars):
-#   $env:MODEL   = "qwen2.5-coder:1.5b"
+#   $env:MODEL   = "qwen3:1.7b"
 #   $env:EDITOR  = "micro"   # micro (default) | zed | vscode | none
 
 $ErrorActionPreference = "Stop"
-if (-not $env:MODEL)   { $env:MODEL   = "qwen2.5-coder:1.5b" }
+if (-not $env:MODEL)   { $env:MODEL   = "qwen3:1.7b" }
 if (-not $env:EDITOR)  { $env:EDITOR  = "micro" }
 $Model  = $env:MODEL
 $Editor = $env:EDITOR
@@ -124,6 +124,7 @@ if (Test-Path $cfg) {
   @"
 {
   "`$schema": "https://opencode.ai/config.json",
+  "model": "ollama/$Model",
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
