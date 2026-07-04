@@ -209,8 +209,7 @@ cat <<EOF
 Try it:
   mkdir -p ~/vibe && cd ~/vibe
   opencode
-  > build a chrome-dino endless runner in one index.html (space to jump,
-    scrolling cacti, collision = game over, a score)
-  then open index.html in your browser and play.
+  > then type what you want to build and press Enter.
+    opencode writes real files into this folder; open and run them yourself.
 
 EOF
