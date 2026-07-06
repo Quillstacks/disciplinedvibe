@@ -1,4 +1,4 @@
-# Disciplined Vibe Coding — local LLM coding setup (Windows / PowerShell).
+# Disciplined Vibe Coding - local LLM coding setup (Windows / PowerShell).
 # One command gets you a fully local, offline-capable vibe-coding stack:
 # an editor, Ollama (autostart via its installer), a small coding model, and
 # opencode wired to the local Ollama. That is all this repo does. Everything you
@@ -37,7 +37,7 @@ switch ($Editor) {
       Log "Installing micro via scoop"
       scoop install micro
     } else {
-      Warn "Neither winget nor scoop found — install micro manually from https://micro-editor.github.io/"
+      Warn "Neither winget nor scoop found - install micro manually from https://micro-editor.github.io/"
     }
   }
   "zed" {
@@ -45,14 +45,14 @@ switch ($Editor) {
     elseif (Have winget) {
       Log "Installing Zed via winget"
       winget install -e --id Zed.Zed --accept-source-agreements --accept-package-agreements
-    } else { Warn "winget not found — install Zed manually from https://zed.dev/" }
+    } else { Warn "winget not found - install Zed manually from https://zed.dev/" }
   }
   "vscode" {
     if (Have code) { Log "VS Code already installed" }
     elseif (Have winget) {
       Log "Installing VS Code via winget"
       winget install -e --id Microsoft.VisualStudioCode --accept-source-agreements --accept-package-agreements
-    } else { Warn "winget not found — install VS Code manually from https://code.visualstudio.com/" }
+    } else { Warn "winget not found - install VS Code manually from https://code.visualstudio.com/" }
   }
   default { throw "Unknown EDITOR=$Editor (use: micro|zed|vscode|none)" }
 }
@@ -111,7 +111,7 @@ if (Have opencode) {
   Log "Installing opencode via winget"
   winget install -e --id sst.opencode --accept-source-agreements --accept-package-agreements
 } else {
-  Warn "winget not found — install opencode manually from https://opencode.ai/"
+  Warn "winget not found - install opencode manually from https://opencode.ai/"
 }
 
 $cfgDir = Join-Path $env:USERPROFILE ".config\opencode"
