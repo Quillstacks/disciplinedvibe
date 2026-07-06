@@ -109,10 +109,14 @@ if (Have opencode) {
   Log "opencode already installed"
 } elseif (Have winget) {
   Log "Installing opencode via winget"
-  winget install -e --id sst.opencode --accept-source-agreements --accept-package-agreements
+  winget install -e --id SST.opencode --accept-source-agreements --accept-package-agreements
 } else {
   Warn "winget not found - install opencode manually from https://opencode.ai/"
 }
+
+# Refresh PATH so a freshly-installed opencode is visible in this session.
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" +
+            [System.Environment]::GetEnvironmentVariable("Path","User")
 
 $cfgDir = Join-Path $env:USERPROFILE ".config\opencode"
 $cfg    = Join-Path $cfgDir "opencode.json"
