@@ -135,7 +135,10 @@ if (Test-Path $cfg) {
       "name": "Ollama (local)",
       "options": { "baseURL": "http://localhost:11434/v1" },
       "models": {
-        "$Model": { "name": "$Model" }
+        "$Model": {
+          "name": "$Model",
+          "limit": { "context": 32768, "output": 32768 }
+        }
       }
     }
   }
